@@ -3,6 +3,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set shell=/bin/bash
 setlocal modifiable
+" This helps the switch from terminal insert mode to terminal normal mode in
+" nvim.
 :tnoremap <Esc> <C-\><C-n>
 set runtimepath+=~/nvim-plugs/deoplete.nvim/
 call plug#begin('~/nvim-plugs')
@@ -10,8 +12,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 "Plugin 'ensime/ensime-vim'
-"Plugin 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'owickstrom/neovim-ghci'
 Plug 'parsonsmatt/intero-neovim'
@@ -22,8 +25,11 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'alx741/vim-hindent'
+Plug 'kien/rainbow_parentheses.vim'
 call plug#end()
-
+setlocal formatprg=hindent
 filetype plugin indent on
 
 call remote#host#RegisterPlugin('python3', '~/nvim-plugs/deoplete.nvim/rplugin/python3/deoplete.py', [
@@ -83,3 +89,13 @@ augroup END
 
 " Intero starts automatically. Set this if you'd like to prevent that.
 let g:intero_start_immediately = 0
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+"let g:haskell_classic_highlighting=1      " classic highlighting
+let g:hindent_on_save = 1
+let g:hindent_indent_size = 2
