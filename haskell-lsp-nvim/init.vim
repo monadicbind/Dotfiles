@@ -64,7 +64,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nelstrom/vim-qargs'
 Plug 'tpope/vim-unimpaired'
-
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 call plug#end()
 
 set number relativenumber
