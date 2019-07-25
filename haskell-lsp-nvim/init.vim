@@ -21,7 +21,7 @@ Plug 'mpickering/hlint-refactor-vim'
 "Plug 'w0rp/ale'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': './install.sh'
+    \ 'do': 'bash install.sh'
     \ }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neoyank.vim'
@@ -90,7 +90,7 @@ syntax on
 filetype plugin indent on
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Unite history/yank<CR>
-let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
+let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper','--lsp'] }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
 map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
